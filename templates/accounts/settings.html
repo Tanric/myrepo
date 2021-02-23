@@ -1,0 +1,112 @@
+{% extends "blogbase.html" %}
+{% load static %}
+{% block content %}
+<header class="masthead"  onload="onloadexecute()" style="background-image: url('img/post-bg.jpg');height: 400px;">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-heading" style="text-align: center;">
+          <h1>Account Settings</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="container demo">
+  <div class="col-lg-12 justify-content-center ">
+    <h3 style="font-weight: 400 !important; margin-top: 2rem">
+      Account <span style="color: lightseagreen">Settings</span>
+    </h3>
+  </div>
+  <div class="col-lg-12 justify-content-center">
+    <div class="row">
+      <div class="col-md-12">
+        <span class="anchor" id="formComplex"></span>
+        <!-- form complex example -->
+        <div class="card card-outline-secondary" style="margin-bottom: 2rem !important">
+          <!-- <div class="card-header">
+                <h3 class="mb-0">Complex Form Example</h3>
+              </div> -->
+          <form method="POST">
+            <div class="card-body">
+
+              <div class="row mt-4">
+                <div class="col-sm-12 pb-3" style="border-bottom: 1px solid rgba(0, 0, 0, 0.125);">
+                  <label for="exampleFirst"><b>General Settings</b></label>
+                </div>
+                {% csrf_token %}
+                <div class="col-sm-12 mt-4">
+                  {% include 'messages.html' %}
+                </div>
+                {% for field in detail_change_form %}
+                <div class="col-sm-6 pb-3 mt-4">
+                  <label for="">{{ field.label }}</label>
+                  {{ field }}
+                  
+                  {% for error in  field.errors %}
+                    <p class="text-danger">{{ error }}</p>
+                  {% endfor %}
+                    
+                </div>
+                {% endfor %}
+                <div class="col-sm-12 pb-3 mt-4">
+                  <input class="form-control"  type="submit"
+                    style="background-color: #0a8f89;color: white;" value="Save User Information" />
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class="col-sm-12 pb-3 mt-4"
+            style="border-bottom: 1px solid rgba(0, 0, 0, 0.125);border-top: 1px solid rgba(0, 0, 0, 0.125);">
+            <label for="exampleFirst" class="mt-4"><b>Change Profile Picture</b></label>
+          </div>
+          <form action={% url 'accounts:photo_change' pk %} method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="card-body">
+              {% include 'messages.html' %}
+              <div class="row mt-2">
+                <div class="col-sm-12 pb-3 mt-4">
+                  <label for="exampleFirst"><i class="fa fa-download" aria-hidden="true"></i> Change Your Profile
+                    Image</label>
+                  {{ photo_change_form.profile_photo }}
+                </div>
+                <div class="col-sm-12 pb-3 mt-4">
+                  <input class="form-control"  type="submit"
+                    style="background-color: #0a8f89;color: white;" value="Change Profile Photo" />
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class="col-sm-12 pb-3 mt-4"
+            style="border-bottom: 1px solid rgba(0, 0, 0, 0.125);border-top: 1px solid rgba(0, 0, 0, 0.125);">
+            <label for="exampleFirst" class="mt-4"><b>Change Password</b></label>
+          </div>
+
+          <form action="{% url 'accounts:password_change' pk %}" method="post">
+            {% csrf_token %}
+            <div class="card-body">
+              {% include 'messages.html' %}
+              <div class="row mt-2">
+
+
+                {% for field in password_change_form %}
+                <div class="col-sm-6 pb-3 mt-4">
+                  <label for="exampleLast">{{ field.label }}</label>
+                  {{ field }}
+                </div>
+                {% endfor %}
+                <div class="col-sm-12 pb-3 mt-4">
+                  <input class="form-control"  type="submit"
+                    style="background-color: #0a8f89;color: white;" value="Change Password" />
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!--/card-->
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

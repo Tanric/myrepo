@@ -1,0 +1,465 @@
+{% extends 'webbase.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'website/css/app.css' %}" type="text/css" />
+<style>
+	card a,
+	a:hover,
+	a:visited,
+	a:link {
+		background-color: inherit !important;
+	}
+</style>
+<div class="wrapper">
+	<nav id="sidebar" class="sidebar" style="margin-right: 0;">
+		<div class="sidebar-content js-simplebar">
+			<a class="sidebar-brand" href="{% url 'home' %}">
+				<span class="align-middle">Karkhana Makerspace</span>
+			</a>
+
+			<ul class="sidebar-nav">
+				<li class="sidebar-item active">
+					<a class="sidebar-link" href="{% url 'home' %}">
+						<i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
+					</a>
+				</li>
+
+				<li class="sidebar-item">
+					<a class="sidebar-link" href={% url 'faq'%}
+>
+						<i class="align-middle" data-feather="credit-card"></i> <span class="align-middle">FAQ</span>
+					</a>
+				</li>
+
+				<li class="sidebar-item ">
+					<a class="sidebar-link" href="{% url 'accounts:settings' user.pk %}">
+						<i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Account
+							settings</span>
+					</a>
+				</li>
+				<li class="sidebar-item">
+					<a class="sidebar-link" href={% url "accounts:logout" %}>
+						<i class="align-middle" data-feather="book"></i> <span class="align-middle">Sign-Out</span>
+					</a>
+				</li>
+		</div>
+	</nav>
+
+	<div class="main">
+		<nav class="navbar navbar-expand navbar-light navbar-bg">
+			<a class="sidebar-toggle d-flex">
+				<i class="hamburger align-self-center"></i>
+			</a>
+		</nav>
+
+		<main class="content">
+			<div class="container-fluid p-0">
+				{% include 'messages.html' %}
+				{% if session %}
+				<div class="row">
+					<div class="col-12 col-md-6 col-xxl-3 d-flex order-1 order-xxl-1">
+						<div class="card flex-fill">
+							<div class="card-header">
+
+								<h5 class="card-title mb-0">Timetable</h5>
+							</div>
+							<div class="card-body" style="max-height: 450px; overflow-y: auto;">
+								
+								{% if schedules %}
+									
+									
+								<table class="table">
+									<thead>
+										<tr>
+											<th>Event Name</th>
+											<th>Date and Time</th>
+											<th>Link</th>
+										</tr>
+									</thead>
+									<tbody>
+										{% for schedule in schedules %}
+										<tr>
+											<td>{{ schedule.text }}</td>
+											<td>{{ schedule.datetime }}</td>
+											<td><a href={{ schedule.link }}>{{ schedule.link }}</a></td>
+										</tr>
+										{% endfor %}
+									</tbody>
+								</table>
+								{% else %}
+								<p class="text-muted">No classes are scheduled. Please contact the instructor on the issue.</p>
+								{% endif %}
+	
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-6 col-xxl-5 d-flex">
+						<div class="w-100">
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="card">
+										<div class="card-body">
+											<h5 class="card-title mb-4">Upcoming Class</h5>
+											<div class="mb-1">
+												
+												{% if schedules %}
+													<a href="{{ schedules.first.link }}"
+													target="_blank"
+													style="background-color: transparent!important;">Link:
+													{{ schedules.first.text }}</a>
+													<p class="text-muted">Time: {{ schedules.first.datetime }}</p>
+												{% else %}
+													<p class="text-muted">No classes are scheduled.</p>
+												{% endif %}
+											</div>
+										</div>
+									</div>
+									<div class="card">
+										<div class="card-body">
+											<h5 class="card-title mb-4">Upcoming Teacher</h5>
+											<div class="mb-1">
+
+												{% for teacher in student.course_session_enrolled.teacher_set.all %}
+												<p class="text-muted">{{ teacher.user.get_full_name }}</p>
+												{% endfor %}
+
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="card">
+										<div class="card-body">
+											<h5 class="card-title mb-4">Overall Progress</h5>
+											<h1 class="mt-1 mb-3">{{ student.xp_gained }}</h1>
+											<div class="mb-1">
+												<span class="text-muted">out of {{ session.course.xp }} points</span>
+											</div>
+										</div>
+									</div>
+									<div class="card">
+										<div class="card-body">
+											<h5 class="card-title mb-4">Fees</h5>
+											<div class="mb-1">
+												<span class="text-danger"> <i class="mdi mdi-arrow-bottom-right"></i>
+													₹{{ fees_left }} </span>
+												<span class="text-muted">left.</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<div class="col-sm-12">
+									<div class="card">
+										<div class="card-body">
+											<h4 class="card-title mb-4">Badges Earned</h4>
+											<div style="display: flex; justify-content: space-evenly; flex-wrap: wrap;">
+
+												{% for badge in student.badges.all %}
+												<div
+													style="display: block; flex-direction: column; text-align: center;">
+													<h1 class="mt-1 mb-3">
+														<img src={{ badge.badge_image.url }} width="100" alt="">
+													</h1>
+													<span class="text-muted">{{ badge.name }}</span>
+												</div>
+												{% endfor %}
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-12 col-md-6 col-xxl-3 d-flex order-1 order-xxl-1">
+						<div class="card flex-fill">
+							<div class="card-header">
+								<h5 class="card-title mb-0">Student Information</h5>
+							</div>
+							<div class="card-body">
+								<ul class="list-group list-group-flush">
+									<li class="list-group-item">
+										<div class="row">
+											<div class="col-md-6 text-left">Name</div>
+											<div class="col-md-6 text-left">{{ student.user.get_full_name }}</div>
+										</div>
+									</li>
+									<li class="list-group-item">
+										<div class="row">
+											<div class="col-md-6 text-left">School</div>
+											<div class="col-md-6 text-left">{{ student.school }}</div>
+										</div>
+									</li>
+									<li class="list-group-item">
+										<div class="row">
+											<div class="col-md-6 text-left">Address</div>
+											<div class="col-md-6 text-left">{{ student.address }}</div>
+										</div>
+									</li>
+									<li class="list-group-item">
+										<div class="row">
+											<div class="col-md-6 text-left">Last Quiz Marks</div>
+											<div class="col-md-6 text-lef">{{ student.last_quiz_marks }}</div>
+										</div>
+									</li>
+									<li class="list-group-item">
+										<div class="row">
+											<div class="col-md-6 text-left">Last Quiz Date and Time</div>
+											<div class="col-md-6 text-lef">{{ student.last_quiz_datetime }}</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-md-6 col-xxl-3 d-flex order-2 order-xxl-3">
+						<div class="card flex-fill w-100">
+							<div class="card-header">
+
+								<h5 class="card-title mb-0">Overall View</h5>
+							</div>
+							<div class="card-body d-flex">
+								<div class="align-self-center w-100">
+									<div class="py-3">
+										<div class="chart chart-xs">
+											<canvas id="chartjs-dashboard-pie"></canvas>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			{% endif %}
+		</main>
+	</div>
+</div>
+
+<script src="{% static "website/js/app.js"%}"></script>
+
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		var ctx = document.getElementById("chartjs-dashboard-line").getContext("2d");
+		var gradient = ctx.createLinearGradient(0, 0, 0, 225);
+		gradient.addColorStop(0, "rgba(215, 227, 244, 1)");
+		gradient.addColorStop(1, "rgba(215, 227, 244, 0)");
+		// Line chart
+		new Chart(document.getElementById("chartjs-dashboard-line"), {
+			type: "line",
+			data: {
+				labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+				datasets: [{
+					label: "Sales ($)",
+					fill: true,
+					backgroundColor: gradient,
+					borderColor: window.theme.primary,
+					data: [
+						2115,
+						1562,
+						1584,
+						1892,
+						1587,
+						1923,
+						2566,
+						2448,
+						2805,
+						3438,
+						2917,
+						3327
+					]
+				}]
+			},
+			options: {
+				maintainAspectRatio: false,
+				legend: {
+					display: false
+				},
+				tooltips: {
+					intersect: false
+				},
+				hover: {
+					intersect: true
+				},
+				plugins: {
+					filler: {
+						propagate: false
+					}
+				},
+				scales: {
+					xAxes: [{
+						reverse: true,
+						gridLines: {
+							color: "rgba(0,0,0,0.0)"
+						}
+					}],
+					yAxes: [{
+						ticks: {
+							stepSize: 1000
+						},
+						display: true,
+						borderDash: [3, 3],
+						gridLines: {
+							color: "rgba(0,0,0,0.0)"
+						}
+					}]
+				}
+			}
+		});
+	});
+</script>
+<script>
+	var quiz = "{{ student.num_quiz }}";
+	var assignment = "{{ student.num_assignment }}";
+	var classes = "{{ student.num_class }}";
+	document.addEventListener("DOMContentLoaded", function () {
+		// Pie chart
+		new Chart(document.getElementById("chartjs-dashboard-pie"), {
+			type: "pie",
+			data: {
+				labels: ["{{student.num_quiz}} quizzes completed out of {{session.course.total_quizzes}}",
+				"{{student.num_assignment}} assignments completed out of {{session.course.total_assignments}}",
+				"{{student.num_class}} classes completed out of {{session.course.total_classes}}"],
+				datasets: [{
+					data: [quiz, assignment, classes],
+					backgroundColor: [
+						window.theme.primary,
+						window.theme.warning,
+						window.theme.danger
+					],
+					borderWidth: 5
+				}]
+			},
+			options: {
+				responsive: !window.MSInputMethodContext,
+				maintainAspectRatio: false,
+				legend: {
+					display: true
+				},
+				cutoutPercentage: 75
+			}
+		});
+	});
+</script>
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		// Bar chart
+		new Chart(document.getElementById("chartjs-dashboard-bar"), {
+			type: "bar",
+			data: {
+				labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+				datasets: [{
+					label: "This year",
+					backgroundColor: window.theme.primary,
+					borderColor: window.theme.primary,
+					hoverBackgroundColor: window.theme.primary,
+					hoverBorderColor: window.theme.primary,
+					data: [54, 67, 41, 55, 62, 45, 55, 73, 60, 76, 48, 79],
+					barPercentage: .75,
+					categoryPercentage: .5
+				}]
+			},
+			options: {
+				maintainAspectRatio: false,
+				legend: {
+					display: false
+				},
+				scales: {
+					yAxes: [{
+						gridLines: {
+							display: false
+						},
+						stacked: false,
+						ticks: {
+							stepSize: 20
+						}
+					}],
+					xAxes: [{
+						stacked: false,
+						gridLines: {
+							color: "transparent"
+						}
+					}]
+				}
+			}
+		});
+	});
+</script>
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		var markers = [{
+			coords: [31.230391, 121.473701],
+			name: "Shanghai"
+		},
+		{
+			coords: [28.704060, 77.102493],
+			name: "Delhi"
+		},
+		{
+			coords: [6.524379, 3.379206],
+			name: "Lagos"
+		},
+		{
+			coords: [35.689487, 139.691711],
+			name: "Tokyo"
+		},
+		{
+			coords: [23.129110, 113.264381],
+			name: "Guangzhou"
+		},
+		{
+			coords: [40.7127837, -74.0059413],
+			name: "New York"
+		},
+		{
+			coords: [34.052235, -118.243683],
+			name: "Los Angeles"
+		},
+		{
+			coords: [41.878113, -87.629799],
+			name: "Chicago"
+		},
+		{
+			coords: [51.507351, -0.127758],
+			name: "London"
+		},
+		{
+			coords: [40.416775, -3.703790],
+			name: "Madrid "
+		}
+		];
+		var map = new JsVectorMap({
+			map: "world",
+			selector: "#world_map",
+			zoomButtons: true,
+			markers: markers,
+			markerStyle: {
+				initial: {
+					r: 9,
+					strokeWidth: 7,
+					stokeOpacity: .4,
+					fill: window.theme.primary
+				},
+				hover: {
+					fill: window.theme.primary,
+					stroke: window.theme.primary
+				}
+			}
+		});
+		window.addEventListener("resize", () => {
+			map.updateSize();
+		});
+	});
+</script>
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		document.getElementById("datetimepicker-dashboard").flatpickr({
+			inline: true,
+		});
+	});
+</script>
+{% endblock %}

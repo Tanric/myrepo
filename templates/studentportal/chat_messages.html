@@ -1,0 +1,37 @@
+{% if queryset_chat %}
+{% for msg in queryset_chat %}
+
+{% if forloop.revcounter0 == 1 %}
+{% include 'messages.html' %}
+<div class="card" id="type-message">
+    {% else %}
+    <div class="card">
+        {% endif %}
+        <div class="card-body">
+            <h2 class="card-title mb-3"><strong>{{ msg.author.get_full_name }}</strong></h2>
+            <div class="card-text mb-1 p-2">
+                {{ msg.msg_body|linebreaks|urlize }}
+            </div>
+
+            {% if user == msg.author and msg.deleted_flag == False %}
+            <a href="{% url 'studentportal:delete_chat' msg.id %}">
+                <button type="button" class="btn btn-secondary">
+                Delete Message
+                </button>
+            </a>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class="card">
+        <div class="car-body m-5">
+            <div class="card-text text-center">
+                <h3>
+                    Starting Chatting Below
+                </h3>
+            </div>
+        </div>
+    </div>
+{% include 'messages.html' %}
+{% endif %}

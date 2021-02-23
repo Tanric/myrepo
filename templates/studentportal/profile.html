@@ -1,0 +1,14 @@
+{% extends 'webbase.html' %}
+{% load static %}
+{% block content %}
+<br>
+    {% if user.is_authenticated %}
+        Hi {{ user.username }}
+        <a href="{% url 'accounts:logout'  %}">Logout</a>
+    {% else %}
+        <p>You are not logged in</p>
+        <a href="{% url 'accounts:login' %}">Log In</a>
+        |
+        <a href="{% url 'accounts:signup' %}">Sign Up</a>
+    {% endif %}
+  {% endblock %}

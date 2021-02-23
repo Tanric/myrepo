@@ -1,0 +1,138 @@
+{% extends 'webbase.html' %}
+{% load static %}
+{% block content %}
+<style>
+	html {
+		scroll-behavior: smooth;
+	}
+.card a {
+	background-color: inherit !important;
+}
+</style>
+<link rel="stylesheet" href="{% static 'website/css/app.css' %}" type="text/css" />
+<div class="wrapper">
+	<nav id="sidebar" class="sidebar" style="margin-right: 0;">
+		<div class="sidebar-content js-simplebar">
+			<a class="sidebar-brand" href="{% url 'home' %}">
+				<span class="align-middle">Karkhana Makerspace</span>
+			</a>
+
+			<ul class="sidebar-nav">
+				<li class="sidebar-item">
+					<a class="sidebar-link" href="{% url 'studentportal:studentprofile'%}">
+						<i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
+					</a>
+				</li>
+
+				<li class="sidebar-item active">
+					<a class="sidebar-link" href="#">
+						<i class="align-middle" data-feather="user"></i> <span class="align-middle">Chat</span>
+					</a>
+				</li>
+
+				<li class="sidebar-item">
+					<a class="sidebar-link" href="pages-settings.html">
+						<i class="align-middle" data-feather="settings"></i> <span class="align-middle">Timetable</span>
+					</a>
+				</li>
+
+				<li class="sidebar-item">
+					<a class="sidebar-link" href={% url 'faq'%}
+>
+						<i class="align-middle" data-feather="credit-card"></i> <span class="align-middle">FAQ</span>
+					</a>
+				</li>
+
+				<li class="sidebar-item">
+					<a class="sidebar-link" href={% url "accounts:logout" %}>
+						<i class="align-middle" data-feather="book"></i> <span class="align-middle">Sign-Out</span>
+					</a>
+				</li>
+		</div>
+	</nav>
+
+	<div class="main">
+		<nav class="navbar navbar-expand navbar-light navbar-bg">
+			<a class="sidebar-toggle d-flex">
+				<i class="hamburger align-self-center"></i>
+			</a>
+		</nav>
+
+		<main class="content">
+			<div class="container-fluid ">
+				
+				<div class="panel-title text-center h2 ">
+					Chats
+				</div>
+				<hr>
+				{% include 'messages.html' %}
+				
+				{% if session %}
+				<div class="flex-row mb-4">
+					
+					<div class="text-center">
+						<a href="#type-message"><input class="btn btn-primary " type="button"
+								value="Jump to latest" /></a>
+					</div>
+				</div>
+
+				<div id="chat-messages">
+					{% include 'studentportal/chat_messages.html' %}
+				</div>
+				<div class="card">
+					<div class="card-body">
+						<h2 class="card-title mb-2">Type your message</h2>
+						<div class="text-center mb-2">
+						</div>
+						<div class="card-text mb-1 ">
+							<form method="post" id="message-form">
+								{% csrf_token %}
+								{{ form.msg_body }}
+								<input class="btn btn-primary form-control mt-3" type="submit">
+							</form>
+						</div>
+					</div>
+				</div>
+				{% endif %}
+			</div>
+		</main>
+	</div>
+</div>
+<script>
+	function get_chats(){
+		$.ajax({
+			type: "GET",
+			url: "{% url 'studentportal:get_chats' %}",
+			success: function (response) {
+				console.log(response["messages"])
+				$("#chat-messages").html(response["messages"])
+			},
+			error: function (response) {
+				console.log(response);
+			}
+		});
+		setTimeout(get_chats, 3000);
+	}
+	$(document).ready(function(){
+		get_chats();
+	});
+	$("#message-form").submit(function (e) {
+		e.preventDefault();
+		var serializedData = $(this).serialize();
+		$.ajax({
+			type: "POST",
+			url: "{% url 'studentportal:chat' %}",
+			data: serializedData,
+			success: function (response) {
+				console.log(response["messages"])
+				$("#message-form").trigger("reset");
+				$("#chat-messages").html(response["messages"])
+			},
+			error: function (response) {
+				console.log(response);
+			}
+		})
+	})
+</script>
+<script src="{% static " website/js/app.js"%}"></script>
+{% endblock %}

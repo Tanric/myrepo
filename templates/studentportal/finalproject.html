@@ -1,0 +1,117 @@
+{% extends 'webbase.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'website/css/app.css' %}" type="text/css" />
+<style>
+    card a,
+    a:hover,
+    a:visited,
+    a:link {
+        background-color: inherit !important;
+    }
+</style>
+<div class="wrapper">
+    <nav id="sidebar" class="sidebar" style="margin-right: 0;">
+        <div class="sidebar-content js-simplebar">
+            <a class="sidebar-brand" href="{% url 'home' %}">
+                <span class="align-middle">Karkhana Makerspace</span>
+            </a>
+
+            <ul class="sidebar-nav">
+
+                <li class="sidebar-item ">
+                    <a class="sidebar-link" href={% url 'studentportal:studentprofile' %}>
+                        <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="{% url 'studentportal:chat' %}">
+                        <i class="align-middle" data-feather="user"></i> <span class="align-middle">Chat</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="pages-settings.html">
+                        <i class="align-middle" data-feather="settings"></i> <span class="align-middle">Timetable</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href={% url 'faq'%}
+>
+                        <i class="align-middle" data-feather="credit-card"></i> <span class="align-middle">FAQ</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href={% url "accounts:logout" %}>
+                        <i class="align-middle" data-feather="book"></i> <span class="align-middle">Sign-Out</span>
+                    </a>
+                </li>
+        </div>
+    </nav>
+
+    <div class="main">
+        <nav class="navbar navbar-expand navbar-light navbar-bg">
+            <a class="sidebar-toggle d-flex">
+                <i class="hamburger align-self-center"></i>
+            </a>
+        </nav>
+
+        <main class="content">
+            <div class="container-fluid ">
+                <div class="flex-row mb-4">
+                    <div class="panel-title text-center h2">
+                        Final Project
+                    </div>
+                    <hr>
+                </div>
+                {% include 'messages.html' %}
+                <div class="card">
+                    <div class="card-title m-3">
+                        Question
+                    </div>
+                    <div class="card-body m-3">
+                        {{ project.final_project | safe }}
+                    </div>
+                </div>
+
+                {% if project.final_project_document %}
+                <div class="card">
+                    <div class="card-title m-3">
+                        Attached Files
+                    </div>
+                    <div class="card-body">
+                        <a href={% url 'studentportal:finalprojectdownload' %}>
+                            {{ project.final_project_document }}
+                        </a>
+                    </div>
+                </div>
+
+                {% endif %}
+                {% if project.final_project_link %}
+                <div class="card">
+                    <div class="card-title m-3">
+                        Submission Link
+                    </div>
+                    <div class="card-body">
+                        {{ project.final_project_link | urlize }}
+                    </div>
+                </div>
+                {% endif %}
+                <div class="card">
+                    <div class="card-title m-3">
+                        Last Date to Submit Assignment
+                    </div>
+                    <div class="card-body">
+                        {{ project.final_project_deadline }}
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<script src="{% static "website/js/app.js"%}"></script>
+{% endblock %}

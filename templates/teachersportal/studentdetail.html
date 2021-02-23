@@ -1,0 +1,88 @@
+{% extends 'blogbase.html' %}
+{% load static %}
+{% block content %}
+<header class="masthead" style="background-image: url({{post.img.url}})">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-heading">
+          <h1>{{post.title}}</h1>
+          <span class="meta">
+            <a href="#">Published on {{post.timestamp}}</a></span>
+          <br>
+          <span class="meta">
+            Posted by {{ post.user.username }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        {{post.content|safe}}
+        <hr>
+        {% if user.is_authenticated %}
+        <!-- Like Button -->
+        <div class="like-button" id="like_section">
+          <p>
+            <b>Liked the article?</b>
+            <a href="{% url 'blogs:like' post.id %}" title="Love it" class="btn btn-counter" data-count={{ post.total_likes }}><span>&#x2764;</span>
+              Loved it</a>
+          </p>
+        </div>
+        <!-- Like Button Ends-->
+        <!-- Leave Comment Section -->
+        <div class="col-sm-12">
+
+
+          <p><b>Leave Your Comment</b></p>
+          <form method="post">
+            {% csrf_token %}
+            <textarea name="comment" class="form-control" cols="50" rows="5" wrap="hard"></textarea>
+            <!-- {{ form.comment }} -->
+            <p></p>
+            
+            {% if error_message %}
+            <div class="alert alert-warning" role="alert">
+              {{ error_message }}
+            </div>
+            
+            {% endif %}
+              
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+        <!-- Leave Comment Section Ends-->
+        {% else %}
+        <p>Please <a href="{% url 'accounts:login' %}">Login</a> to like or comment on the above mentioned post</p>
+        {% endif %}
+        <hr />
+        <!-- Comment Section -->
+        <div class="col-sm-12">
+          <p>Comments</p>
+          {% for comment in post.postcomment_set.all %}
+          <div class="media" style="font-size: 16px !important">
+            <!-- <img src="..." class="mr-3" alt="..." /> -->
+            <!-- <var class="mr-3">{{ forloop.counter }} .</var> -->
+            <div class="media-body">
+              <h5 class="mt-0">{{ comment.user.username }}</h5>
+              <p style="text-align: justify; margin-top: 0;">
+                {{ comment.comment }}
+              </p>
+              <hr>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+<hr />
+{% endblock %}

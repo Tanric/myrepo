@@ -1,0 +1,938 @@
+{% extends 'webbase.html' %}
+{% load static %}
+{% block content %}
+    <section class="story" style="margin-bottom: 3rem">
+        <section style="margin-top: 1rem">
+          <div class="bg-theme-light" id="certified-desktop">
+            <div
+              class="shadow-sm hero-features-left bgcolor gradient"
+              style="margin-top: 5rem"
+            >
+              <div class="row">
+                <div class="col-md-8 mt-3 mt-md-0">
+                  <div class="feature-box fbox-plain fbox-small fbox-dark mb-0">
+                    <h2
+                      class="text-white"
+                      style="
+                        margin: 0;
+                        letter-spacing: 2px;
+                        text-align: right;
+                        font-size: 3rem !important;
+                      "
+                    >
+                      F.A.Q
+                    </h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Mobile Version -->
+          <div class="bg-theme-light" id="certified-mobile">
+            <div
+              class="shadow-sm hero-features-left bgcolor gradient"
+              style="margin-top: 5rem; padding-top: 20px !important"
+            >
+              <div class="row">
+                <div class="col-md-8 mt-3 mt-md-0">
+                  <div
+                    class="feature-box fbox-plain fbox-small fbox-dark mb-0"
+                    style="
+                      padding-left: 0 !important;
+                      text-align: center !important;
+                      color: white !important;
+                    "
+                  >
+                    <h2
+                      class="text-white"
+                      style="
+                        margin: 0;
+                        letter-spacing: 2px;
+                        font-size: 2rem !important;
+                      "
+                    >
+                      F.A.Q
+                    </h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- <h2 class="text-center text-muted py-3">Karkhana Timeline</h2> -->
+        <p></p>
+        <div class="container">
+          <ul
+            class="nav nav-pills mb-3 mx-auto"
+            id="pills-tab"
+            role="tablist"
+            style="width: 100%; display: flex; justify-content: center"
+          >
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                id="pills-home-tab"
+                data-toggle="pill"
+                href="#pills-home"
+                role="tab"
+                aria-controls="pills-home"
+                aria-selected="true"
+                >General</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                id="pills-profile-tab"
+                data-toggle="pill"
+                href="#pills-profile"
+                role="tab"
+                aria-controls="pills-profile"
+                aria-selected="false"
+                >K-12 Program</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                id="pills-contact-tab"
+                data-toggle="pill"
+                href="#pills-contact"
+                role="tab"
+                aria-controls="pills-contact"
+                aria-selected="false"
+                >Setup Makerspace</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                id="pills-virtual-tab"
+                data-toggle="pill"
+                href="#pills-virtual"
+                role="tab"
+                aria-controls="pills-virtual"
+                aria-selected="false"
+                >Virtual Program</a
+              >
+            </li>
+          </ul>
+          <div class="tab-content" id="pills-tabContent">
+            <div
+              class="tab-pane fade show active"
+              id="pills-home"
+              role="tabpanel"
+              aria-labelledby="pills-home-tab"
+            >
+              <div id="accordion">
+                <div class="card">
+                  <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                      <button
+                        class="btn btn-link"
+                        data-toggle="collapse"
+                        data-target="#collapseOne"
+                        aria-expanded="true"
+                        aria-controls="collapseOne"
+                        style="width: 100%; text-decoration: none"
+                      >
+                        <span style="float: left"
+                          >1. What is Karkhana Makerspace?</span
+                        >
+                        <span style="float: right" id="certified-desktop"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                        <span style="text-align: center" id="certified-mobile"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                      </button>
+                    </h5>
+                  </div>
+
+                  <div
+                    id="collapseOne"
+                    class="collapse"
+                    aria-labelledby="headingOne"
+                    data-parent="#accordion"
+                  >
+                    <div class="card-body">
+                      Karkhana Makerspace is a co-working and maker workshop. We
+                      are a co-curricular after-school and engineering program
+                      with a unique approach to learning and making. We are a
+                      team of teachers - engineers, designers, artists, and turn
+                      the classroom into a laboratory for discoveries and
+                      creations.
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                      <button
+                        class="btn btn-link collapsed"
+                        data-toggle="collapse"
+                        data-target="#collapseTwo"
+                        aria-expanded="false"
+                        aria-controls="collapseTwo"
+                        style="width: 100%; text-decoration: none"
+                      >
+                        <span style="float: left"
+                          >2. When Karkhana Makerspace started?</span
+                        >
+                        <span style="float: right" id="certified-desktop"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                        <span style="text-align: center" id="certified-mobile"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                      </button>
+                    </h5>
+                  </div>
+                  <div
+                    id="collapseTwo"
+                    class="collapse"
+                    aria-labelledby="headingTwo"
+                    data-parent="#accordion"
+                  >
+                    <div class="card-body">
+                      Karkhana Makerspace started in 2016 by Mr. Siddharth
+                      Bhatter (Microsoft Innovative Educator, Top 40 under 40
+                      Young Innovative Entrepreneur, TedX Speaker, Guest
+                      Speaker, Guest Lecturer in leading academic institutions
+                      and finally an avid Electronics Enthusiast) started with a
+                      vision of changing the way of education with help of
+                      Hands-on learning.
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingThree">
+                    <h5 class="mb-0">
+                      <button
+                        class="btn btn-link collapsed"
+                        data-toggle="collapse"
+                        data-target="#collapseThree"
+                        aria-expanded="false"
+                        aria-controls="collapseThree"
+                        style="width: 100%; text-decoration: none"
+                      >
+                        <span style="float: left"
+                          >3. What are services of karkhana makerspace?</span
+                        >
+                        <span style="float: right" id="certified-desktop"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                        <span style="text-align: center" id="certified-mobile"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                      </button>
+                    </h5>
+                  </div>
+                  <div
+                    id="collapseThree"
+                    class="collapse"
+                    aria-labelledby="headingThree"
+                    data-parent="#accordion"
+                  >
+                    <div class="card-body">
+                      Karkhana Makerspace provides the best combination of
+                      tools, equipment, instructors, access, and education for
+                      makers and startups for rapid prototyping. We offer
+                      hands-on STEM/skills training for students, employees,
+                      teachers, and everyone in our community.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- K-12 -->
+            <div
+              class="tab-pane fade"
+              id="pills-profile"
+              role="tabpanel"
+              aria-labelledby="pills-profile-tab"
+            >
+              <div id="accordion">
+                <div class="card">
+                  <div class="card-header" id="headingFour">
+                    <h5 class="mb-0">
+                      <button
+                        class="btn btn-link"
+                        data-toggle="collapse"
+                        data-target="#collapseFour"
+                        aria-expanded="true"
+                        aria-controls="collapseFour"
+                        style="width: 100%; text-decoration: none"
+                      >
+                        <span style="float: left"
+                          >1. What is the K-12 Maker's Program?</span
+                        >
+                        <span style="float: right" id="certified-desktop"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                        <span style="text-align: center" id="certified-mobile"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                      </button>
+                    </h5>
+                  </div>
+
+                  <div
+                    id="collapseFour"
+                    class="collapse"
+                    aria-labelledby="headingFour"
+                    data-parent="#accordion"
+                  >
+                    <div class="card-body">
+                      Overall, the term refers to hands-on activities that
+                      promote academic learning and encourage creativity,
+                      teamwork and collaboration, and a can-do mindset
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingFive">
+                    <h5 class="mb-0">
+                      <button
+                        class="btn btn-link collapsed"
+                        data-toggle="collapse"
+                        data-target="#collapseFive"
+                        aria-expanded="false"
+                        aria-controls="collapseFive"
+                        style="width: 100%; text-decoration: none"
+                      >
+                        <span style="float: left"
+                          >2. How to enroll for K-12 Maker Program?</span
+                        >
+                        <span style="float: right" id="certified-desktop"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                        <span style="text-align: center" id="certified-mobile"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                      </button>
+                    </h5>
+                  </div>
+                  <div
+                    id="collapseFive"
+                    class="collapse"
+                    aria-labelledby="headingFive"
+                    data-parent="#accordion"
+                  >
+                    <div class="card-body">
+                      You can book a live demo session at any time and register
+                      your student if you like our session. Enroll your student.
+                      You will be guided through our course selection and
+                      payment options ,where you can proceed with available EMI
+                      options . Once you've submitted all of the required
+                      enrollment documents and payment, the fun begins.
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingSix">
+                    <h5 class="mb-0">
+                      <button
+                        class="btn btn-link collapsed"
+                        data-toggle="collapse"
+                        data-target="#collapseSix"
+                        aria-expanded="false"
+                        aria-controls="collapseSix"
+                        style="width: 100%; text-decoration: none"
+                      >
+                        <span style="float: left"
+                          >3. What is eligibility for the K-12 Maker
+                          Program?</span
+                        >
+                        <span style="float: right" id="certified-desktop"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                        <span style="text-align: center" id="certified-mobile"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                      </button>
+                    </h5>
+                  </div>
+                  <div
+                    id="collapseSix"
+                    class="collapse"
+                    aria-labelledby="headingSix"
+                    data-parent="#accordion"
+                  >
+                    <div class="card-body">
+                      We accept all age groups of students in our programs, but
+                      please be mindful of the specified age ranges and skill
+                      levels when registering for a specific course. We have
+                      categorized our courses by grades and skill level based on
+                      years of student and parent feedback, as well as our own
+                      observations.
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingSeven">
+                    <h5 class="mb-0">
+                      <button
+                        class="btn btn-link collapsed"
+                        data-toggle="collapse"
+                        data-target="#collapseSeven"
+                        aria-expanded="false"
+                        aria-controls="collapseSeven"
+                        style="width: 100%; text-decoration: none"
+                      >
+                        <span style="float: left"
+                          >4. Can I pay fees in EMIs?</span
+                        >
+                        <span style="float: right" id="certified-desktop"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                        <span style="text-align: center" id="certified-mobile"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                      </button>
+                    </h5>
+                  </div>
+                  <div
+                    id="collapseSeven"
+                    class="collapse"
+                    aria-labelledby="headingSeven"
+                    data-parent="#accordion"
+                  >
+                    <div class="card-body">
+                      Yeah, you can register with a 5000 Rs processing/
+                      registration fee and deposit the remaining portion in
+                      monthly instalments.
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingEight">
+                    <h5 class="mb-0">
+                      <button
+                        class="btn btn-link collapsed"
+                        data-toggle="collapse"
+                        data-target="#collapseEight"
+                        aria-expanded="false"
+                        aria-controls="collapseEight"
+                        style="width: 100%; text-decoration: none"
+                      >
+                        <span style="float: left"
+                          >5. How can I get a refund and in how many days?</span
+                        >
+                        <span style="float: right" id="certified-desktop"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                        <span style="text-align: center" id="certified-mobile"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                      </button>
+                    </h5>
+                  </div>
+                  <div
+                    id="collapseEight"
+                    class="collapse"
+                    aria-labelledby="headingEight"
+                    data-parent="#accordion"
+                  >
+                    <div class="card-body">
+                      To demand a refund you can mail us explaining your reason
+                      for refund at ( hello@karkhana.club ) with Student Maker
+                      ID or fill up this
+                      <a
+                        href="{% url "refund" %}"
+                        style="background-color: transparent !important"
+                        >form.</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingNine">
+                    <h5 class="mb-0">
+                      <button
+                        class="btn btn-link collapsed"
+                        data-toggle="collapse"
+                        data-target="#collapseNine"
+                        aria-expanded="false"
+                        aria-controls="collapseNine"
+                        style="width: 100%; text-decoration: none"
+                      >
+                        <span style="float: left"
+                          >6. Do I need to buy a laptop/PC for the K-12 Maker's
+                          Program?</span
+                        >
+                        <span style="float: right" id="certified-desktop"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                        <span style="text-align: center" id="certified-mobile"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                      </button>
+                    </h5>
+                  </div>
+                  <div
+                    id="collapseNine"
+                    class="collapse"
+                    aria-labelledby="headingNine"
+                    data-parent="#accordion"
+                  >
+                    <div class="card-body">
+                      <p><b>System Requirement</b></p>
+                      <ul>
+                        For most of our courses, students will need a computer
+                        with audio and video capabilities.We also recommend the
+                        following for the best experience:
+                        <li>
+                          CPU : 64-bit processor (32-bit and ARM not supported),
+                          4 cores, 1.7 GHz Intel Core i3, AMD Ryzen 3
+                        </li>
+                        <li>
+                          Memory 4 GB of RAM (integrated graphics recommend 2 GB
+                          or more)
+                        </li>
+                        <li>
+                          Operating System: Microsoft Windows (8.1 or greater )
+                        </li>
+                        <li>Disk Space: 4 GB or greater</li>
+                        <li>
+                          Internet: 2.5 Mbps or faster download; 500 Kbps or
+                          faster upload
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Setup Makerspace -->
+            <div
+              class="tab-pane fade"
+              id="pills-contact"
+              role="tabpanel"
+              aria-labelledby="pills-contact-tab"
+            >
+              <div id="accordion">
+                <div class="card">
+                  <div class="card-header" id="headingTen">
+                    <h5 class="mb-0">
+                      <button
+                        class="btn btn-link"
+                        data-toggle="collapse"
+                        data-target="#collapseTen"
+                        aria-expanded="true"
+                        aria-controls="collapseTen"
+                        style="width: 100%; text-decoration: none"
+                      >
+                        <span style="float: left">1. What is Makerspace?</span>
+                        <span style="float: right" id="certified-desktop"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                        <span style="text-align: center" id="certified-mobile"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                      </button>
+                    </h5>
+                  </div>
+
+                  <div
+                    id="collapseTen"
+                    class="collapse"
+                    aria-labelledby="headingTen"
+                    data-parent="#accordion"
+                  >
+                    <div class="card-body">
+                      Makerspace is a shared space aimed at achieving
+                      interdisciplinary goals by collaborating on projects, in
+                      an environment that encourages interactional learning.It's
+                      a way of bringing the school-community under one roof and
+                      encourage the practice of learning together through
+                      application.
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingEleven">
+                    <h5 class="mb-0">
+                      <button
+                        class="btn btn-link collapsed"
+                        data-toggle="collapse"
+                        data-target="#collapseEleven"
+                        aria-expanded="false"
+                        aria-controls="collapseEleven"
+                        style="width: 100%; text-decoration: none"
+                      >
+                        <span style="float: left">2.Duration of Agreement</span>
+                        <span style="float: right" id="certified-desktop"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                        <span style="text-align: center" id="certified-mobile"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                      </button>
+                    </h5>
+                  </div>
+                  <div
+                    id="collapseEleven"
+                    class="collapse"
+                    aria-labelledby="headingEleven"
+                    data-parent="#accordion"
+                  >
+                    <div class="card-body">
+                      The term of a Makerspace agreement shall continue for 3
+                      years. College may renew the same at the end of the term
+                      availing a 40% discount then.
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingTwelve">
+                    <h5 class="mb-0">
+                      <button
+                        class="btn btn-link collapsed"
+                        data-toggle="collapse"
+                        data-target="#collapseTwelve"
+                        aria-expanded="false"
+                        aria-controls="collapseTwelve"
+                        style="width: 100%; text-decoration: none"
+                      >
+                        <span style="float: left"
+                          >3. What floor area space is suitable for the
+                          Makerspace?</span
+                        >
+                        <span style="float: right" id="certified-desktop"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                        <span style="text-align: center" id="certified-mobile"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                      </button>
+                    </h5>
+                  </div>
+                  <div
+                    id="collapseTwelve"
+                    class="collapse"
+                    aria-labelledby="headingTwelve"
+                    data-parent="#accordion"
+                  >
+                    <div class="card-body">
+                      Space required for makerspace setup is averagely 1500 sq
+                      ft.
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingThirteen">
+                    <h5 class="mb-0">
+                      <button
+                        class="btn btn-link collapsed"
+                        data-toggle="collapse"
+                        data-target="#collapseThirteen"
+                        aria-expanded="false"
+                        aria-controls="collapseThirteen"
+                        style="width: 100%; text-decoration: none"
+                      >
+                        <span style="float: left"
+                          >4. What are the things required to run karkhana
+                          Makerspace programs?</span
+                        >
+                        <span style="float: right" id="certified-desktop"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                        <span style="text-align: center" id="certified-mobile"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                      </button>
+                    </h5>
+                  </div>
+                  <div
+                    id="collapseThirteen"
+                    class="collapse"
+                    aria-labelledby="headingThirteen"
+                    data-parent="#accordion"
+                  >
+                    <div class="card-body">
+                      For implementing Karkhana Makerspace programs, the
+                      Institution needs to have equipment in the lab as per
+                      different programs. If the Karkhana program requires any
+                      tool/component/machine to execute the program smoothly,
+                      then college has to provide that facility.
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingForteen">
+                    <h5 class="mb-0">
+                      <button
+                        class="btn btn-link collapsed"
+                        data-toggle="collapse"
+                        data-target="#collapseForteen"
+                        aria-expanded="false"
+                        aria-controls="collapseForteen"
+                        style="width: 100%; text-decoration: none"
+                      >
+                        <span style="float: left"
+                          >5. How long will it take to open the
+                          Makerspace?</span
+                        >
+                        <span style="float: right" id="certified-desktop"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                        <span style="text-align: center" id="certified-mobile"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                      </button>
+                    </h5>
+                  </div>
+                  <div
+                    id="collapseForteen"
+                    class="collapse"
+                    aria-labelledby="headingForteen"
+                    data-parent="#accordion"
+                  >
+                    <div class="card-body">
+                      After signing the agreement/legal terms, that depends on a
+                      number of factors, including selection of a desirable
+                      location and approval of relevant permits, licenses, etc
+                      by the approving authorities. The average setup time
+                      however is three weeks from our experience.
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingFifteen">
+                    <h5 class="mb-0">
+                      <button
+                        class="btn btn-link collapsed"
+                        data-toggle="collapse"
+                        data-target="#collapseFifteen"
+                        aria-expanded="false"
+                        aria-controls="collapseFifteen"
+                        style="width: 100%; text-decoration: none"
+                      >
+                        <span style="float: left"
+                          >6. How do I request for proposal for setting up
+                          Karkhana Lab in my campus/university?</span
+                        >
+                        <span style="float: right" id="certified-desktop"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                        <span style="text-align: center" id="certified-mobile"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                      </button>
+                    </h5>
+                  </div>
+                  <div
+                    id="collapseFifteen"
+                    class="collapse"
+                    aria-labelledby="headingFifteen"
+                    data-parent="#accordion"
+                  >
+                    <div class="card-body">Kindly click on this link.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Virtual Program -->
+            <div
+              class="tab-pane fade"
+              id="pills-virtual"
+              role="tabpanel"
+              aria-labelledby="pills-virtual-tab"
+            >
+              <div id="accordion">
+                <div class="card">
+                  <div class="card-header" id="heading16">
+                    <h5 class="mb-0">
+                      <button
+                        class="btn btn-link"
+                        data-toggle="collapse"
+                        data-target="#collapse16"
+                        aria-expanded="true"
+                        aria-controls="collapse16"
+                        style="width: 100%; text-decoration: none"
+                      >
+                        <span style="float: left"
+                          >1. What are Karkhana Virtual Program?</span
+                        >
+                        <span style="float: right" id="certified-desktop"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                        <span style="text-align: center" id="certified-mobile"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                      </button>
+                    </h5>
+                  </div>
+
+                  <div
+                    id="collapse16"
+                    class="collapse"
+                    aria-labelledby="heading16"
+                    data-parent="#accordion"
+                  >
+                    <div class="card-body">
+                      Virtual classes that cover emerging technologies while
+                      teaching our students about problem solving and creative
+                      thinking. They are (time )-minute tutoring sessions with
+                      scheduling flexibility. Our experienced instructors help
+                      our students learn at home over secure video conferencing
+                      where they learn about the world around them through
+                      emerging technology.
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="heading17">
+                    <h5 class="mb-0">
+                      <button
+                        class="btn btn-link collapsed"
+                        data-toggle="collapse"
+                        data-target="#collapse17"
+                        aria-expanded="false"
+                        aria-controls="collapse17"
+                        style="width: 100%; text-decoration: none"
+                      >
+                        <span style="float: left"
+                          >2. Is their any virtual program for
+                          college/university students?</span
+                        >
+                        <span style="float: right" id="certified-desktop"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                        <span style="text-align: center" id="certified-mobile"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                      </button>
+                    </h5>
+                  </div>
+                  <div
+                    id="collapse17"
+                    class="collapse"
+                    aria-labelledby="heading17"
+                    data-parent="#accordion"
+                  >
+                    <div class="card-body">
+                      Yes,
+                      <a
+                        href="{% url 'collegeregistration' %}"
+                        style="background-color: transparent !important"
+                        >click here for registration.</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="heading18">
+                    <h5 class="mb-0">
+                      <button
+                        class="btn btn-link collapsed"
+                        data-toggle="collapse"
+                        data-target="#collapse18"
+                        aria-expanded="false"
+                        aria-controls="collapse18"
+                        style="width: 100%; text-decoration: none"
+                      >
+                        <span style="float: left"
+                          >3. Do you offer financial aid or scholarships?</span
+                        >
+                        <span style="float: right" id="certified-desktop"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                        <span style="text-align: center" id="certified-mobile"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                      </button>
+                    </h5>
+                  </div>
+                  <div
+                    id="collapse18"
+                    class="collapse"
+                    aria-labelledby="heading18"
+                    data-parent="#accordion"
+                  >
+                    <div class="card-body">
+                      Yes! We offer the Maker’s Scholarship Program to provide
+                      tuition assistance to students. We award a limited number
+                      of scholarships based on financial need.
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="heading19">
+                    <h5 class="mb-0">
+                      <button
+                        class="btn btn-link collapsed"
+                        data-toggle="collapse"
+                        data-target="#collapse19"
+                        aria-expanded="false"
+                        aria-controls="collapse19"
+                        style="width: 100%; text-decoration: none"
+                      >
+                        <span style="float: left"
+                          >4. How do I reschedule my lesson?</span
+                        >
+                        <span style="float: right" id="certified-desktop"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                        <span style="text-align: center" id="certified-mobile"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                      </button>
+                    </h5>
+                  </div>
+                  <div
+                    id="collapse19"
+                    class="collapse"
+                    aria-labelledby="heading19"
+                    data-parent="#accordion"
+                  >
+                    <div class="card-body">
+                      You can reschedule your online lessons through your
+                      dashboards after you login to your account.
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="heading20">
+                    <h5 class="mb-0">
+                      <button
+                        class="btn btn-link collapsed"
+                        data-toggle="collapse"
+                        data-target="#collapse20"
+                        aria-expanded="false"
+                        aria-controls="collapse20"
+                        style="width: 100%; text-decoration: none"
+                      >
+                        <span style="float: left"
+                          >5. Will my student receive homework?</span
+                        >
+                        <span style="float: right" id="certified-desktop"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                        <span style="text-align: center" id="certified-mobile"
+                          ><i class="flaticon-up-chevron-1"></i
+                        ></span>
+                      </button>
+                    </h5>
+                  </div>
+                  <div
+                    id="collapse20"
+                    class="collapse"
+                    aria-labelledby="heading20"
+                    data-parent="#accordion"
+                  >
+                    <div class="card-body">
+                      If requested, the instructor can provide additional
+                      homework outside the lesson, as private lessons are
+                      tailored to fit each student’s preferences.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+ {% endblock %}

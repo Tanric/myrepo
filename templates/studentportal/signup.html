@@ -1,0 +1,127 @@
+{% extends 'webbase.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid login-page" style="margin-bottom: 3rem;margin-top: 2rem;">
+  <div class="container ">
+    <div class="row ">
+
+      <div class="col-sm-10 login-box">
+        <div class="row">
+          <div class="col-lg-4 col-md-5 box-de">
+            <!-- <div class="small-logo">
+                                <i class="fab fa-asymmetrik"></i> style login
+                            </div> -->
+            <div class="ditk-inf sup-oi">
+              <h2 class="w-100" style="color: white;">Already Have an Account </h2>
+              <p>Simply login to your account by clicking the login Button</p>
+              <a href="{% url 'accounts:login' %}">
+                <button type="button" class="btn btn-outline-light">SIGN IN</button>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-8 col-md-7 log-det">
+
+            <h2>Create a Student Account</h2>
+            <!-- <div class="row">
+                                <ul>
+                                    <li><i class="fab fa-facebook-f"></i></li>
+                                    <li><i class="fab fa-twitter"></i></li>
+                                    <li><i class="fab fa-linkedin-in"></i></li>
+                                </ul>
+                            </div> -->
+            <div class="row">
+              <p class="small-info">Use your Email account</p>
+            </div>
+            <div class="row">
+
+              <div class="text-box-cont">
+                <form method="POST">
+                  {% csrf_token %}
+                  <div class="input-group mb-1">
+                    <input type="email" class="form-control" name="email" placeholder="Email" aria-label="Username"
+                      aria-describedby="basic-addon1" style="border-left: solid 1px #ced4da!important;">
+                  </div>
+                  {{ form.email.errors }}
+                  <div class="input-group mb-1">
+                    <input type="text" class="form-control" name="username" placeholder="Username"
+                      aria-label="Username" aria-describedby="basic-addon1"
+                      style="border-left: solid 1px #ced4da!important;">
+                  </div>
+                  {{ form.username.errors }}
+                  <div class="input-group mb-1">
+                    <input type="password" class="form-control" name="password1" placeholder="Password"
+                      aria-label="Username" aria-describedby="basic-addon1"
+                      style="border-left: solid 1px #ced4da!important;">
+                  </div>
+                  {{ form.password1.errors }}
+
+                  <div class="input-group mb-1">
+                    <input type="password" class="form-control" name="password2" placeholder="Confirm Password"
+                      aria-label="Username" aria-describedby="basic-addon1"
+                      style="border-left: solid 1px #ced4da!important;">
+                  </div>
+                  {{ form.password2.errors }}
+                  <div class="input-group mb-1">
+                    <input type="text" class="form-control" name='first_name' placeholder="First Name"
+                      aria-label="Username" aria-describedby="basic-addon1"
+                      style="border-left: solid 1px #ced4da!important;">
+                  </div>
+                  {{ form.first_name.errors }}
+                  <div class="input-group mb-1">
+                    <input type="text" class="form-control" name="last_name" placeholder="Last Name"
+                      aria-label="Username" aria-describedby="basic-addon1"
+                      style="border-left: solid 1px #ced4da!important;">
+                  </div>
+                  {{ form.last_name.errors }}
+                  <div class="input-group mb-1">
+                    <input type="text" class="form-control" name="phone_number" placeholder="Phone Number"
+                      aria-label="Username" aria-describedby="basic-addon1"
+                      style="border-left: solid 1px #ced4da!important;">
+                  </div>
+                  {{ form.phone_number.errors }}
+
+                  <!-- {% for field in form %}
+                  <div class="input-group mb-3" style="border-left: solid 1px #ced4da!important;">
+                    {{ field }}
+                    {% if field.errors%}
+                    <div class="alert alert-danger">
+
+                      {% for error in field.errors %}
+                      <strong>{{ error|escape }}</strong>
+                      {% endfor %}
+                    </div>
+                    {% endif %}
+                  </div>
+                  {% endfor %} -->
+                  <div class="input-group center sup mb-3">
+                    <button class="btn btn-success btn-round">SIGN UP</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="section mb-0 pb-0 bg-theme-light clearfix" style="padding-top: 0 !important">
+  <div class="row">
+    <div class="col-md-8 offset-1" id="get-involved" style="margin-bottom: 1rem">
+      <div class="container">
+        <h2 class="nott t600 display-4 register" style="margin-top: 1rem; margin-bottom: 1rem">
+          K-12 Maker Program
+        </h2>
+        <p style="font-size: 1rem">
+          Know more about K-12 Maker Programs.
+        </p>
+        <br />
+        <a href="{% url "home" %}" class="button button-rounded button-xlarge m-0 nott t600 ls0 px-5"
+          style="margin-bottom: 2rem !important"><span style="letter-spacing: 1px !important">Get Started</span></a>
+      </div>
+    </div>
+  </div>
+  <!-- <img src="" alt="Footer Image" class="footer-img" /> -->
+</div>
+
+{% endblock %}

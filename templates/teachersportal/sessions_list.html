@@ -1,0 +1,93 @@
+{% extends 'webbase.html' %}
+{% load static %}
+{% block content %}
+<style>
+	html {
+		scroll-behavior: smooth;
+
+	}
+
+	.card-body .card-text a {
+		background-color: inherit !important;
+	}
+</style>
+<link rel="stylesheet" href="{% static 'website/css/app.css' %}" type="text/css" />
+<div class="wrapper">
+	<nav id="sidebar" class="sidebar" style="margin-right: 0;">
+		<div class="sidebar-content js-simplebar">
+			<a class="sidebar-brand" href="{% url 'home' %}">
+				<span class="align-middle">Karkhana Makerspace</span>
+			</a>
+
+			<ul class="sidebar-nav">
+				<li class="sidebar-item">
+					<a class="sidebar-link" href="{% url 'accounts:settings' user.pk %}">
+						<i class="align-middle" data-feather="settings"></i> <span class="align-middle">Account settings</span>
+					</a>
+				</li>
+
+				<li class="sidebar-item">
+					<a class="sidebar-link" href={% url 'faq'%}
+>
+						<i class="align-middle" data-feather="credit-card"></i> <span class="align-middle">FAQ</span>
+					</a>
+				</li>
+
+				<li class="sidebar-item">
+					<a class="sidebar-link" href={% url "accounts:logout" %}>
+						<i class="align-middle" data-feather="book"></i> <span class="align-middle">Sign-Out</span>
+					</a>
+				</li>
+		</div>
+	</nav>
+
+	<div class="main">
+		<nav class="navbar navbar-expand navbar-light navbar-bg">
+			<a class="sidebar-toggle d-flex">
+				<i class="hamburger align-self-center"></i>
+			</a>
+		</nav>
+
+		<main class="content">
+			<div class="container-fluid ">
+				<div class="flex-row mb-4">
+					<div class="panel-title text-center h2 ">
+						Course Sessions
+					</div>
+					<hr>
+				</div>
+
+				{% if object_list %}
+				{% for session in object_list %}
+				<div class="card">
+					<div class="card-body">
+						<a href={% url 'teachersportal:sessiondashboard' session.pk %}>
+							<h2 class="card-title mb-3"><strong>{{ session|safe}}</strong></h2>
+							<div class="card-text mb-1 p-2">
+								<span style="color: lightseagreen;">
+									{{ forloop.counter }}. Go to session
+								 ID {{ session.pk }}</span>
+							</div>
+							<div style="float: right;">
+								Number of Students: {{ session.student_set.count }}
+							</div>
+						</a>
+					</div>
+				</div>
+				{% endfor %}
+				{% else %}
+				<div class="card">
+					<div class="card-body">
+						<h2 class="card-title mb-3 warning"><strong>No session alotted</strong></h2>
+						<div class="card-text mb-1 p-2">
+							Contact support to allot a session
+						</div>
+					</div>
+					{% endif %}
+				</div>
+		</main>
+	</div>
+</div>
+<script src="{% static "website/js/app.js"%}"></script>
+
+{% endblock %}
