@@ -1,0 +1,586 @@
+/* COMMON CSS SUPPORTED IN DESKTOP AND PHONE */
+
+.rounded-corner {
+  border-radius: 0.5rem;
+}
+
+.collegename {
+  font-size: 14px;
+  font-weight: 700;
+}
+.w3-tag{
+  color:black;
+  font-weight:700;
+}
+.rounded-corner2 {
+    border-radius: 1rem;
+}
+.card-text {
+  font-size: 12px;
+  font-weight:700;
+  color:white;
+}
+.hyperlink {
+  font-size:12px;
+  color:blue;
+}
+.w3-display-bottomleft{
+  margin-left:12px;
+}
+
+/* footer */
+.site-footer
+{
+  background-color:#26272b;
+  padding:45px 0 20px;
+  font-size:15px;
+  line-height:24px;
+  color:#737373;
+}
+.site-footer hr
+{
+  border-top-color:#bbb;
+  opacity:0.5
+}
+.site-footer hr.small
+{
+  margin:20px 0
+}
+.site-footer h6
+{
+  color:#fff;
+  font-size:16px;
+  text-transform:uppercase;
+  margin-top:5px;
+  letter-spacing:2px
+}
+.site-footer a
+{
+  color:#737373;
+}
+.site-footer a:hover
+{
+  color:#3366cc;
+  text-decoration:none;
+}
+.footer-links
+{
+  padding-left:0;
+  list-style:none
+}
+.footer-links li
+{
+  display:block
+}
+.footer-links a
+{
+  color:#737373
+}
+.footer-links a:active,.footer-links a:focus,.footer-links a:hover
+{
+  color:#3366cc;
+  text-decoration:none;
+}
+.footer-links.inline li
+{
+  display:inline-block
+}
+.site-footer .social-icons
+{
+  text-align:right
+}
+.site-footer .social-icons a
+{
+  width:40px;
+  height:40px;
+  line-height:40px;
+  margin-left:6px;
+  margin-right:0;
+  border-radius:100%;
+  background-color:#33353d
+}
+.copyright-text
+{
+  margin:0
+}
+@media (max-width:991px)
+{
+  .site-footer [class^=col-]
+  {
+    margin-bottom:30px
+  }
+}
+@media (max-width:767px)
+{
+  .site-footer
+  {
+    padding-bottom:0
+  }
+  .site-footer .copyright-text,.site-footer .social-icons
+  {
+    text-align:center
+  }
+}
+.social-icons
+{
+  padding-left:0;
+  margin-bottom:0;
+  list-style:none
+}
+.social-icons li
+{
+  display:inline-block;
+  margin-bottom:4px
+}
+.social-icons li.title
+{
+  margin-right:15px;
+  text-transform:uppercase;
+  color:#96a2b2;
+  font-weight:700;
+  font-size:13px
+}
+.social-icons a{
+  background-color:#eceeef;
+  color:#818a91;
+  font-size:16px;
+  display:inline-block;
+  line-height:44px;
+  width:44px;
+  height:44px;
+  text-align:center;
+  margin-right:8px;
+  border-radius:100%;
+  -webkit-transition:all .2s linear;
+  -o-transition:all .2s linear;
+  transition:all .2s linear
+}
+.social-icons a:active,.social-icons a:focus,.social-icons a:hover
+{
+  color:#fff;
+  background-color:#29aafe
+}
+.social-icons.size-sm a
+{
+  line-height:34px;
+  height:34px;
+  width:34px;
+  font-size:14px
+}
+.social-icons a.facebook:hover
+{
+  background-color:#3b5998
+}
+.social-icons a.twitter:hover
+{
+  background-color:#00aced
+}
+.social-icons a.linkedin:hover
+{
+  background-color:#007bb6
+}
+.social-icons a.dribbble:hover
+{
+  background-color:#ea4c89
+}
+@media (max-width:767px)
+{
+  .social-icons li.title
+  {
+    display:block;
+    margin-right:0;
+    font-weight:600
+  }
+}
+/* end of footer */
+.scrolling-wrapper-flexbox {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+
+  .card {
+    flex: 0 0 auto;
+  }
+}
+
+.background-heavy {
+  background-color:#F5DEB3;
+}
+.background-light {
+  background-color:#FFF8DC;
+}
+.standard-font {
+  font-family: 'Montserrat', sans-serif;
+}
+.form-control {
+  opacity:0.8;
+}
+/* .dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; // remove the gap so it doesn't close
+ } */
+ .dropdown-item {
+   font-size:12px;
+   width:250px;
+ }
+ /* .dropdown-large{ padding:20px; }
+
+ @media all and (min-width: 992px) {
+
+ 	.dropdown-large{min-width:900px;}
+
+ } */
+.dropdown-header {
+  font-weight:700;
+}
+.nav-link {
+  font-size:13px;
+  opacity:0.8;
+
+}
+.fa {
+  vertical-align: middle;
+}
+/* gradient buttons */
+
+.btn-grad2 {background-image: linear-gradient(to right, #1A2980 0%, #26D0CE  51%, #1A2980  100%)}
+.btn-grad2 {
+
+ margin: 10px;
+ padding: 15px 25px;
+ text-align: center;
+ text-transform: uppercase;
+ transition: 0.5s;
+ background-size: 200% auto;
+ color: white;
+ box-shadow: 0 0 20px #eee;
+ border-radius: 10px;
+ display: block;
+}
+
+.btn-grad2:hover {
+ background-position: right center; /* change the direction of the change here */
+ color: #fff;
+ text-decoration: none;
+}
+
+/* end of gradient buttons */
+/* sign up form */
+
+.btn-grad {background-image: linear-gradient(to right, #DD5E89 0%, #F7BB97  51%, #DD5E89  100%)}
+.btn-grad {
+
+text-align: center;
+text-transform: uppercase;
+transition: 0.5s;
+background-size: 200% auto;
+color: white;
+box-shadow: 0 0 20px #eee;
+border-radius: 10px;
+display: block;
+}
+
+.btn-grad:hover {
+background-position: right center; /* change the direction of the change here */
+color: #fff;
+text-decoration: none;
+}
+.form-font {
+  font-size:12px;
+}
+.form-control {
+  border-radius:2rem;
+  height:35px;
+}
+.megasubmenu{ padding: 20px;}
+
+@media (min-width: 992px){
+
+  .dropdown-menu .dropdown-toggle:after{
+      border-top: .3em solid transparent;
+      border-right: 0;
+      border-bottom: .3em solid transparent;
+      border-left: .3em solid;
+  }
+  .dropdown-menu{
+    margin:0;
+    background-image: linear-gradient(to right, #ECE9E6 0%, #FFFFFF  51%, #ECE9E6  100%)
+  }
+  .megasubmenu{
+    left:100%; top:0; min-height: 100%; min-width:500px;
+
+
+  }
+
+  .dropdown-menu > li:hover .megasubmenu{
+    display: block;
+    background-image: linear-gradient(to right, #ECE9E6 0%, #FFFFFF  51%, #ECE9E6  100%)
+  }
+}
+/* end of sign up form */
+.dropdown-toggle::after {
+    display:none;
+}
+
+ .btn-grad3 {background-image: linear-gradient(to right, #8e9eab 0%, #eef2f3  51%, #8e9eab  100%)}
+ .btn-grad3 {
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+  }
+
+  .btn-grad3:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+
+/* individual college CSS*/
+ul.college-subinfo {
+  list-style-type: none;
+}
+li.college-subinfo-float {
+  float: left;
+}
+
+/* navigation tabs */
+a:hover,
+a:focus{
+    text-decoration: none;
+    outline: none;
+}
+.tab{ font-family: 'Montserrat', sans-serif; }
+.tab .nav-tabs{ border: none; }
+.tab .nav-tabs li a{
+    color: #999B9D;
+    opacity:0.8;
+    background: #FFF8DC;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 7px 15px 5px;
+    margin: 0 0 1px 0;
+    border: none;
+    border-radius: 0;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+.tab .nav-tabs li a:hover,
+.tab .nav-tabs li.active a,
+.tab .nav-tabs li.active a:hover{
+    color: #6d7ae0;
+    background-color: #f7f7f7;
+    border: none;
+}
+.tab .nav-tabs li a:before,
+.tab .nav-tabs li a:after{
+    content: '';
+    background-color: #6d7ae0;
+    height: 3px;
+    width: 0;
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    transition: all 0.3s ease 0s;
+}
+.tab .nav-tabs li a:after{
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    transform: translateX(-50%) scale(0);
+    transform-origin: bottom center;
+    left: 50%;
+    bottom: 0;
+}
+.tab .nav-tabs li.active a:before,
+.tab .nav-tabs li a:hover:before{
+    width: 100%;
+}
+.tab .nav-tabs li.active a:after,
+.tab .nav-tabs li a:hover:after{
+    opacity: 0;
+    transform: translateX(-50%) scale(1);
+}
+.tab .tab-content{
+    color: #999;
+    background-color: #fff;
+    font-size: 14px;
+    letter-spacing: 1px;
+    line-height: 25px;
+    padding: 30px 25px 20px;
+
+}
+@media only screen and (max-width: 479px){
+    .tab .nav-tabs li{
+        width: 100%;
+        text-align: center;
+    }
+    .tab .nav-tabs li a:before{ bottom: 0; }
+}
+/* end of navigation tab */
+
+/* MOBILE CSS */
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+
+#desktop-no-show {
+ display:none;
+}
+.title-mobile {
+  font-size:14px;
+  font-weight: 700;
+  font color: black;
+}
+
+.header-mobile {
+  font-size: 14px;
+}
+.content-mobile {
+  font-size: 10px;
+}
+
+.search-slt{
+    display: block;
+    width: 100%;
+    font-size:10px;
+    line-height: 1.5;
+    color: #55595c;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    height: calc(3rem + 2px) !important;
+    border-radius:0;
+}
+.wrn-btn{
+    width: 100%;
+    font-size: 10px;
+    font-weight: 400;
+    text-transform: capitalize;
+    height: calc(3rem + 2px) !important;
+    border-radius:0;
+}
+.carousel-caption {
+    top: 0;
+    bottom: auto;
+}
+/* gradient buttons */
+
+.btn-grad2 {background-image: linear-gradient(to right, #1A2980 0%, #26D0CE  51%, #1A2980  100%)}
+.btn-grad2 {
+ padding: 10px 25px;
+ text-align: center;
+ text-transform: uppercase;
+ transition: 0.5s;
+ background-size: 200% auto;
+ color: white;
+ box-shadow: 0 0 20px #eee;
+ border-radius: 10px;
+ display: block;
+}
+
+.btn-grad2:hover {
+ background-position: right center; /* change the direction of the change here */
+ color: #fff;
+ text-decoration: none;
+}
+.college-name {
+  font-weight:800;
+  font-size:14px;
+}
+.college-subinfo {
+  font-weight:700;
+  font-size:8px;
+}
+
+.navigation-tabs {
+  text-decoration: None;
+  font-size:11px;
+  color:orange;
+  font-weight:900;
+
+
+}
+
+/* end of mobile CSS */
+}
+
+/* DESKTOP CSS */
+@media only screen and (min-width: 768px) {
+
+#mobile-no-show {
+ display:none;
+}
+
+.header-desktop {
+  font-size: 20px;
+}
+.content-desktop {
+  font-size: 12px;
+}
+.search-slt{
+    display: block;
+    width: 100%;
+    font-size:12px;
+    line-height: 1.5;
+    color: #55595c;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    height: calc(3rem + 2px) !important;
+    border-radius:0;
+}
+.wrn-btn{
+    width: 100%;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: capitalize;
+    height: calc(3rem + 2px) !important;
+    border-radius:0;
+}
+/* gradient buttons */
+
+.btn-grad2 {background-image: linear-gradient(to right, #1A2980 0%, #26D0CE  51%, #1A2980  100%)}
+.btn-grad2 {
+
+ margin: 10px;
+ padding: 15px 25px;
+ text-align: center;
+ text-transform: uppercase;
+ transition: 0.5s;
+ background-size: 200% auto;
+ color: white;
+ box-shadow: 0 0 20px #eee;
+ border-radius: 10px;
+ display: block;
+}
+
+.btn-grad2:hover {
+ background-position: right center; /* change the direction of the change here */
+ color: #fff;
+ text-decoration: none;
+}
+
+/* end of gradient buttons */
+.college-name {
+  font-weight:800;
+  color:white;
+  font-size:20px;
+}
+.college-subinfo {
+  font-weight:700;
+  color:white;
+  font-size:12px;
+}
+table, th, td {
+  border: 1px solid black;
+}
+
+
+
+}
+
+/* END OF DESKTOP CSS */
