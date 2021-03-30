@@ -1,0 +1,407 @@
+{% extends "base.html" %}
+
+{% load wagtailimages_tags %}
+{% block content %}
+<!--NEW CODE-->
+<main class="container">
+
+         <div id="filters " class="row">
+            <div class="col-lg-3">
+               <div class="filtersec">
+<!--                   {% for filter in filters %}-->
+<!--                   <span class="">{{ filter }}</span>-->
+<!--                   {% endfor %}-->
+                 <span> <a href="/colleges/" class="text-white"> Clear all </a></span>
+               </div>
+               <button class="accordion">COLLEGE CATEGORY</button>
+               <div class="panel">
+                  <div class="checkbocon">
+                     <div class="search-container">
+                        <form action="/action_page.php">
+                           <input type="text" placeholder="Search.." name="search">
+                           <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                     </div>
+                     {% for college_type in college_type_unique %}
+                     <div class="checkbox">
+                        <label><input type="checkbox"  onchange="window.location.href='/colleges/?college_type_id={{ college_type.college_type_id }}' " >{{ college_type.college_type }}</label>
+                     </div>
+                     {% endfor %}
+                  </div>
+               </div>
+               <button class="accordion">STATE</button>
+               <div class="panel">
+                  <div class="checkbocon">
+                     <div class="search-container">
+                        <form action="/action_page.php">
+                           <input type="text" placeholder="Search.." name="search">
+                           <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                     </div>
+                      {% for state in state_unique %}
+                     <div class="checkbox">
+                        <label><input type="checkbox"  onchange="window.location.href='/colleges/?state_id={{ state.state_id }}' " >{{ state.state }}</label>
+                     </div>
+                     {% endfor %}
+                  </div>
+               </div>
+               <button class="accordion">District</button>
+               <div class="panel">
+                  <div class="checkbocon">
+                     <div class="search-container">
+                        <form action="/action_page.php">
+                           <input type="text" placeholder="Search.." name="search">
+                           <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                     </div>
+                     <div  class="checkbox">
+                      {% for district in district_unique %}
+                         <label><input type="checkbox" value="{{ district.district }}"/>{{ district.district }}</label>
+                     {% endfor %}
+                    </div>
+                  </div>
+               </div>
+               <button class="accordion">Nearest City</button>
+               <div class="panel">
+                  <div class="checkbocon">
+                     <div class="search-container">
+                        <form action="/action_page.php">
+                           <input type="text" placeholder="Search.." name="search">
+                           <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                     </div>
+                    <div  class="checkbox">
+                      {% for city in city_unique %}
+                         <label><input type="checkbox" value="{{ city.nearest_city }}"/>{{ city.nearest_city }}</label>
+                     {% endfor %}
+                    </div>
+                  </div>
+               </div>
+<!--               <button class="accordion">Degree</button>-->
+<!--               <div class="panel">-->
+<!--                  <div class="checkbocon">-->
+<!--                     <div class="search-container">-->
+<!--                        <form action="/action_page.php">-->
+<!--                           <input type="text" placeholder="Search.." name="search">-->
+<!--                           <button type="submit"><i class="fa fa-search"></i></button>-->
+<!--                        </form>-->
+<!--                     </div>-->
+<!--                     <div class="checkbox">-->
+<!--                        <label><input type="checkbox" value="">IIT - [23]</label>-->
+<!--                     </div>-->
+<!--                     <div class="checkbox">-->
+<!--                        <label><input type="checkbox" value="">NIT - [31]</label>-->
+<!--                     </div>-->
+<!--                     <div class="checkbox">-->
+<!--                        <label><input type="checkbox" value="">IIM - [20]</label>-->
+<!--                     </div>-->
+<!--                     <div class="checkbox">-->
+<!--                        <label><input type="checkbox" value="">IIIT - [28]</label>-->
+<!--                     </div>-->
+<!--                  </div>-->
+<!--               </div>-->
+                    <div id="selectContainer">
+                    <select class="form-select" name="select-1" id="select-1">
+                        <option value="allStates">All States</option>
+                        {% for state in state_unique %}
+                        <option value="{{ state.state }}">{{ state.state  }}</option>
+                    {% endfor %}
+                    </select>
+                    <select class="form-select" name="select-2" id="select-2">
+                        <option value="allDistricts">All Districts</option>
+                        {% for district in district_unique %}
+                        <option value="{{ district.district }}">{{ district.district  }}</option>
+                    {% endfor %}
+                    </select>
+                      <select class="form-select" name="select-3" id="select-3">
+                          <option value="allCities">All Cities</option>
+                          {% for city in city_unique %}
+                            <option value="{{ city.nearest_city }}">{{ city.nearest_city }}</option>
+                          {% endfor %}
+                      </select>
+                         <select class="form-select" name="select-4" id="select-4">
+                          <option value="allStreams">All Streams</option>
+                          {% for stream in streams %}
+                            <option value="{{ stream.custom_title }}">{{ stream.custom_title }}</option>
+                          {% endfor %}
+                      </select>
+                         <select class="form-select" name="select-5" id="select-5">
+                          <option value="allStreams">All Degrees</option>
+                          {% for degree in degrees %}
+                            <option value="{{ degree.custom_title }}">{{ degree.custom_title }}</option>
+                          {% endfor %}
+                      </select>
+                    </div>
+               <button class="accordion">Program Type</button>
+               <div class="panel">
+                  <div class="checkbocon">
+                     <div class="search-container">
+                        <form action="/action_page.php">
+                           <input type="text" placeholder="Search.." name="search">
+                           <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                     </div>
+                     <div class="checkbox">
+                        <label><input type="checkbox" value="">IIT - [23]</label>
+                     </div>
+                     <div class="checkbox">
+                        <label><input type="checkbox" value="">NIT - [31]</label>
+                     </div>
+                     <div class="checkbox">
+                        <label><input type="checkbox" value="">IIM - [20]</label>
+                     </div>
+                     <div class="checkbox">
+                        <label><input type="checkbox" value="">IIIT - [28]</label>
+                     </div>
+                  </div>
+               </div>
+               <button class="accordion">Course duration</button>
+               <div class="panel">
+                  <div class="checkbocon">
+                     <div class="search-container">
+                        <form action="/action_page.php">
+                           <input type="text" placeholder="Search.." name="search">
+                           <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                     </div>
+                     <div class="checkbox">
+                        <label><input type="checkbox" value="">IIT - [23]</label>
+                     </div>
+                     <div class="checkbox">
+                        <label><input type="checkbox" value="">NIT - [31]</label>
+                     </div>
+                     <div class="checkbox">
+                        <label><input type="checkbox" value="">IIM - [20]</label>
+                     </div>
+                     <div class="checkbox">
+                        <label><input type="checkbox" value="">IIIT - [28]</label>
+                     </div>
+                  </div>
+               </div>
+               <button class="accordion">Graduation Level</button>
+               <div class="panel">
+                  <div class="checkbocon">
+                     <div class="search-container">
+                        <form action="/action_page.php">
+                           <input type="text" placeholder="Search.." name="search">
+                           <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                     </div>
+                     <div class="checkbox">
+                        <label><input type="checkbox" value="">IIT - [23]</label>
+                     </div>
+                     <div class="checkbox">
+                        <label><input type="checkbox" value="">NIT - [31]</label>
+                     </div>
+                     <div class="checkbox">
+                        <label><input type="checkbox" value="">IIM - [20]</label>
+                     </div>
+                     <div class="checkbox">
+                        <label><input type="checkbox" value="">IIIT - [28]</label>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!--  this is col-03 -->
+            <div class="col-sm-9 " style="padding: 0">
+              <div class="sortcon">
+                <ul>
+                  <li><strong>Sort By</strong></li>
+                  <li>Popularity <svg xmlns="http://www.w3.org/2000/svg" width="16.08" height="14.639" viewBox="0 0 16.08 14.639">
+  <g id="sort-down" transform="translate(0 -20.609)">
+    <g id="Group_21" data-name="Group 21" transform="translate(0 20.609)">
+      <g id="Group_20" data-name="Group 20" transform="translate(0 0)">
+        <path id="Path_25" data-name="Path 25" d="M.727,90.214H8.048V88.761H.727a.727.727,0,0,0,0,1.453Z" transform="translate(0 -86.317)" fill="#363636"/>
+        <path id="Path_26" data-name="Path 26" d="M.727,192.771H8.048v-1.453H.727a.727.727,0,0,0,0,1.453Z" transform="translate(0 -185.197)" fill="#363636"/>
+        <path id="Path_27" data-name="Path 27" d="M.727,293.874h0a.727.727,0,0,0,0,1.453H5.813a1.8,1.8,0,0,1,.153-1.453Z" transform="translate(0 -284.076)" fill="#363636"/>
+        <path id="Path_28" data-name="Path 28" d="M238.258,30.465a.8.8,0,0,0-1.3,0l-.754.927V21.738a.938.938,0,1,0-1.838,0v9.654l-.754-.927a.8.8,0,0,0-1.3,0,1.32,1.32,0,0,0,0,1.6l2.323,2.855a.8.8,0,0,0,1.3,0l2.323-2.855A1.32,1.32,0,0,0,238.258,30.465Z" transform="translate(-222.447 -20.609)" fill="#363636"/>
+      </g>
+    </g>
+  </g>
+</svg>
+</li>
+                  <li>Reviews Rating <svg xmlns="http://www.w3.org/2000/svg" width="16.08" height="14.639" viewBox="0 0 16.08 14.639">
+  <g id="sort-down" transform="translate(0 -20.609)">
+    <g id="Group_21" data-name="Group 21" transform="translate(0 20.609)">
+      <g id="Group_20" data-name="Group 20" transform="translate(0 0)">
+        <path id="Path_25" data-name="Path 25" d="M.727,90.214H8.048V88.761H.727a.727.727,0,0,0,0,1.453Z" transform="translate(0 -86.317)" fill="#363636"/>
+        <path id="Path_26" data-name="Path 26" d="M.727,192.771H8.048v-1.453H.727a.727.727,0,0,0,0,1.453Z" transform="translate(0 -185.197)" fill="#363636"/>
+        <path id="Path_27" data-name="Path 27" d="M.727,293.874h0a.727.727,0,0,0,0,1.453H5.813a1.8,1.8,0,0,1,.153-1.453Z" transform="translate(0 -284.076)" fill="#363636"/>
+        <path id="Path_28" data-name="Path 28" d="M238.258,30.465a.8.8,0,0,0-1.3,0l-.754.927V21.738a.938.938,0,1,0-1.838,0v9.654l-.754-.927a.8.8,0,0,0-1.3,0,1.32,1.32,0,0,0,0,1.6l2.323,2.855a.8.8,0,0,0,1.3,0l2.323-2.855A1.32,1.32,0,0,0,238.258,30.465Z" transform="translate(-222.447 -20.609)" fill="#363636"/>
+      </g>
+    </g>
+  </g>
+</svg>
+ </li>
+                  <li>Fees <svg xmlns="http://www.w3.org/2000/svg" width="16.08" height="14.639" viewBox="0 0 16.08 14.639">
+  <g id="sort-down" transform="translate(0 -20.609)">
+    <g id="Group_21" data-name="Group 21" transform="translate(0 20.609)">
+      <g id="Group_20" data-name="Group 20" transform="translate(0 0)">
+        <path id="Path_25" data-name="Path 25" d="M.727,90.214H8.048V88.761H.727a.727.727,0,0,0,0,1.453Z" transform="translate(0 -86.317)" fill="#363636"/>
+        <path id="Path_26" data-name="Path 26" d="M.727,192.771H8.048v-1.453H.727a.727.727,0,0,0,0,1.453Z" transform="translate(0 -185.197)" fill="#363636"/>
+        <path id="Path_27" data-name="Path 27" d="M.727,293.874h0a.727.727,0,0,0,0,1.453H5.813a1.8,1.8,0,0,1,.153-1.453Z" transform="translate(0 -284.076)" fill="#363636"/>
+        <path id="Path_28" data-name="Path 28" d="M238.258,30.465a.8.8,0,0,0-1.3,0l-.754.927V21.738a.938.938,0,1,0-1.838,0v9.654l-.754-.927a.8.8,0,0,0-1.3,0,1.32,1.32,0,0,0,0,1.6l2.323,2.855a.8.8,0,0,0,1.3,0l2.323-2.855A1.32,1.32,0,0,0,238.258,30.465Z" transform="translate(-222.447 -20.609)" fill="#363636"/>
+      </g>
+    </g>
+  </g>
+</svg>
+</li>
+                </ul>
+              </div>
+
+    {% for post in posts %}
+<!--add class -->
+        <div class="target colors">
+            <div class="object {{ post.state }} {{ post.district }} {{ post.nearest_city }}   allCities allDistricts allStates allStreams allDegrees">
+                <div class="row collagelisting ">
+                  <div class="col-sm-3 ">
+                     <div class="imagecontaier">
+                        <i class="fa fa-heart"></i>
+                         {% image post.logo_image fill-250x250 as blog_img %}
+                    <a href="{{ post.url }}">
+                        <img src="{{ blog_img.url }}" alt="{{ blog_img.alt }}">
+                    </a>
+                        <span class="capton">Entrance gate</span>
+                     </div>
+                  </div>
+                  <div class="col-sm-9">
+                     <div class="infocont">
+                        <span class="infotag">Sponsored </span>
+                        <div class="row">
+                           <div class="row">
+                              <div class="col-sm-8">
+                    <a href={{ post.url }}>{{ post.custom_title }} </a>
+
+                                 <ul class="featuresin">
+                                    <li>{{ post.state }}</li>
+                                    <li>{{ post.district }}</li>
+                                    <li>{{ post.nearest_city}}</li>
+                                 </ul>
+                                 <h6>{{ post.university_name }}  <a style="font-size: 14px; display: inline-block;"href="#"> <span class="checkbox">
+                        <label>(Compare) <input type="checkbox" value=""></label>
+                     </span></a></h6>
+
+                              </div>
+                              <div class="col-sm-4">
+                                 <div class="rating">
+                                    Rating : <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                 </div>
+                                 <ul class="approvelist">
+                                    <li>Approvals :</li>
+                                    {% for body in post.recog_body.all %}
+                                    <li>{{ body.recog_name_short }} </li>
+                                     {% endfor %}
+                                 </ul>
+                              </div>
+                           </div>
+                           <div class="col-sm-12">
+                              <ul class="buttoncon">
+                                 <li><a href="#" style="background: #D54030">Apply now</a></li>
+                                 <li><a href="#" style="background: #E98047">Admission 2021</a></li>
+                                 <li><a href="#" style="background: #FFD966">Courses & Fees</a></li>
+                                 <li><a href="#" style="background: #7AB684">Placement</a></li>
+                                 <li><a href="#" style="background: #0C7B83">Brochure</a></li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+                        </div>
+                    </div>
+               {% endfor %}
+
+
+
+
+
+               <!-- this is listing end -->
+            </div>
+         </div>
+         </div>
+      </main>
+<!--END OF NEW CODE-->
+ <script>
+         var acc = document.getElementsByClassName("accordion");
+         var i;
+
+         for (i = 0; i < acc.length; i++) {
+           acc[i].addEventListener("click", function() {
+             this.classList.toggle("active");
+             var panel = this.nextElementSibling;
+             if (panel.style.maxHeight) {
+               panel.style.maxHeight = null;
+             } else {
+               panel.style.maxHeight = panel.scrollHeight + "px";
+             }
+           });
+         }
+  </script>
+<script>
+  function myFunction() {
+  var input = document.getElementById("Search");
+  var filter = input.value.toLowerCase();
+  var nodes = document.getElementsByClassName('target');
+
+  for (i = 0; i < nodes.length; i++) {
+    if (nodes[i].innerText.toLowerCase().includes(filter)) {
+      nodes[i].style.display = "block";
+    } else {
+      nodes[i].style.display = "none";
+    }
+  }
+}
+</script>
+<!--<script>-->
+<!--    $("#filters :checkbox").change(function() {-->
+<!--    $(".colors > div").hide();-->
+<!--    $("#filters :checkbox:checked").each(function() {-->
+<!--        $(".colors ." + $(this).val()).show();-->
+<!--    });-->
+<!--});-->
+<!--</script>-->
+<script>
+jQuery('#selectContainer select').on('change', function() {
+var state = jQuery('#select-1').val();
+var district = jQuery('#select-2').val();
+var city = jQuery('#select-3').val();
+var stream = jQuery('#select-4').val();
+var degree = jQuery('#select-5').val();
+
+jQuery('div.object').hide();
+
+  jQuery('div.object').each(function() {
+  	if(jQuery(this).hasClass(state) && jQuery(this).hasClass(district) && jQuery(this).hasClass(city)){
+    jQuery(this).show();
+    }
+  });
+
+});
+</script>
+
+
+{% endblock content %}
+<!--    <div class="container">-->
+
+<!--        {% for post in posts %}-->
+<!--            <div class="row mt-5 mb-5">-->
+<!--                <div class="col-sm-3">-->
+<!--                    {% image post.logo_image fill-250x250 as blog_img %}-->
+<!--                    <a href="{{ post.url }}">-->
+<!--                        <img src="{{ blog_img.url }}" alt="{{ blog_img.alt }}">-->
+<!--                    </a>-->
+<!--                </div>-->
+<!--                <div class="col-sm-9">-->
+<!--                    <a href="{{ post.url }}">-->
+<!--                        <h2>{{ post.custom_title }}</h2>-->
+<!--                        {# @todo add a summary field to BlogDetailPage; make it a RichTextField with only Bold and Italic enabled. #}-->
+<!--                        <a href="{{ post.url }}" class="btn btn-primary mt-4">Read More</a>-->
+<!--                    </a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        {% endfor %}-->
+<!--    </div>-->
